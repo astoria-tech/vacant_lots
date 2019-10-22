@@ -40,9 +40,11 @@ def parse_dataset(boro_num=None, block_list=[]):
     return vacant_df
 
 
-def main():
+def main(neighborhood=None):
     """Main."""
-    [boro_num, block_list] = get_block_list("astoria")
+    if not neighborhood:
+        return []
+    [boro_num, block_list] = get_block_list(neighborhood)
     df = parse_dataset(boro_num, block_list)
     print(
         df[
@@ -52,4 +54,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main("astoria")
